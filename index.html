@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>REDE IBNE - Menu Avançado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #001f3f);
+      color: #0047AB;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .logo-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-out, glowPulse 3s infinite ease-in-out;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px #0047AB88;
+      }
+      50% {
+        box-shadow: 0 0 20px #0047ABcc;
+      }
+    }
+
+   
+
+    .subtitulo {
+      font-size: 16px;
+      color: #f0f0f0;
+      margin-top: 5px;
+    }
+
+    .menu-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1100;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      background-color: #0047AB;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .conteudo-centralizado {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .links-container {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .links-container.open {
+      max-height: 600px;
+      padding: 20px;
+    }
+
+    .link-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #0047AB;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .link-button:hover {
+      background-color: rgba(0, 71, 171, 0.3);
+      transform: scale(1.05);
+    }
+
+
+    .voluntario-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .voluntario-section p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      color: #ffffffaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img 
+      src="https://raw.githubusercontent.com/REDEIBNE/newlgo/refs/heads/main/logotipo_ibne-removebg-preview.png" 
+      alt="Logo IBNE" 
+      class="logo-img"
+      oncontextmenu="return false"
+    />
+    <div class="logo-text">IBNE</div>
+    <p class="subtitulo">Saiba mais sobre a IBNE</p>
+    </div>
+  </header>
+
+  <main>
+        <a class="link-button" href="https://youtube.com/@ibne.oficial" target="_blank">
+          <i class="fab fa-youtube"></i> YOUTUBE
+        </a>
+        <a class="link-button" href="https://instagram.com/ibne.oficial" target="_blank">
+          <i class="fab fa-instagram"></i> INSTAGRAM
+        </a>
+        <a class="link-button" href="https://forms.gle/7gKGSnpu1ewQcUjUA" target="_blank">
+          <i class="fas fa-praying-hands"></i> Pedidos de oração
+        </a>
+        <a class="link-button" href="https://redeibne.github.io/PORTOFOLIO/" target="_blank">
+          <i class="fas fa-info-circle"></i> Saiba mais sobre a IBNE
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 REDE IBNE. Todos os direitos reservados.
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const linksContainer = document.getElementById('linksContainer');
+
+    function toggleMenu() {
+      menuBtn.classList.toggle('open');
+      const isOpen = menuBtn.classList.contains('open');
+      linksContainer.classList.toggle('open', isOpen);
+      linksContainer.setAttribute('aria-hidden', !isOpen);
+      menuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuBtn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>
